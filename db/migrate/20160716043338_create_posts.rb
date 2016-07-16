@@ -9,7 +9,8 @@ class CreatePosts < ActiveRecord::Migration[5.0]
       t.string :city
       t.string :state
       t.string :picture_url
-
+      t.references :user, index: true, foreign_key: true
+      t.references :category, index: true, foreign_key: true
       t.timestamps
     end
   end
