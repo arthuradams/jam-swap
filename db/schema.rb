@@ -16,24 +16,24 @@ ActiveRecord::Schema.define(version: 20160716133734) do
   enable_extension "plpgsql"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.string   "comment"
+    t.string   "comment",    limit: 1000, null: false
     t.integer  "post_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
+    t.string   "title",       null: false
+    t.text     "description", null: false
     t.string   "email"
     t.string   "phone"
     t.string   "street"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20160716133734) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
+    t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
