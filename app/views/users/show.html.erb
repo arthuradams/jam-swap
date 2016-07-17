@@ -5,5 +5,27 @@
   <%= @user.email %>
 </p>
 
+<p>
+  <strong>Posts:</strong>
+  <ul>
+    <% @user.posts.find_each do |post| %>
+      <li>
+        <%= link_to post.title, post %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <ul>
+    <% @user.comments.find_each do |commento| %>
+      <li>
+        <%= link_to commento.comment, commento %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
