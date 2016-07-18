@@ -1,3 +1,4 @@
+<main data-ng-controller="comment_controller as vm">
 <p id="notice"><%= notice %></p>
 
 <h1>Comments</h1>
@@ -11,17 +12,16 @@
   </thead>
 
   <tbody>
-    <% @comments.each do |comment| %>
-      <tr>
-        <td><%= comment.comment %></td>
-        <td><%= link_to 'Show', comment %></td>
-        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
-        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr data-ng-repeat="commentvm in vm.com_data">
+        <td>{{commentvm.comment}}</td>
+        <td><a data-ui-sref="commentShow({id: commentvm.id})">Show</a></td>
+        <td><a data-ng-click="CommentShowViewModel.update(CommentShowViewModel.commentvm)">Edit</a></td>
+        <td><a data-ng-click="CommentShowViewModel.destroy(CommentShowViewModel.commentvm)">Delete</a></td>
       </tr>
-    <% end %>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Comment', new_comment_path %>
+</main>
