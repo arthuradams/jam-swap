@@ -1,0 +1,42 @@
+<main data-ng-controller="post_controller as vm">
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Picture url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <tr data-ng-repeat="postvm in vm.post_data">
+        <td>{{postvm.title}}</td>
+        <td>{{postvm.description}}</td>
+        <td>{{postvm.email}}</td>
+        <td>{{postvm.phone}}</td>
+        <td>{{postvm.street}}</td>
+        <td>{{postvm.city}}</td>
+        <td>{{postvm.state}}</td>
+        <td>{{postvm.picture_url}}</td>
+        <td><a data-ui-sref="postShow({id: postvm.id})">Show</a></td>
+        <td><a data-ng-click="PostShowViewModel.update(PostShowViewModel.postvm)">Edit</a></td>
+        <td><a data-ng-click="PostShowViewModel.destroy(PostShowViewModel.postvm)">Delete</a></td>
+      </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>
+</main>

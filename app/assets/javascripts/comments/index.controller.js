@@ -3,7 +3,7 @@
 (function(){
   angular
   .module("comments", ["ngResource"])
-  .controller("comment_controller", ["$resource", CommentController])
+  .controller("comment_controller", ["$resource", CommentController]);
 
   function CommentController($resource){
     var vm = this;
