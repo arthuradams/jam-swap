@@ -3,7 +3,7 @@
 (function(){
   angular
   .module("categories", ["ngResource"])
-  .controller("category_controller", ["$resource", CategoryController])
+  .controller("category_controller", ["$resource", CategoryController]);
 
   function CategoryController($resource){
     var vm = this;
