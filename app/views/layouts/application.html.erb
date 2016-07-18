@@ -7,11 +7,11 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class = "full">
     <div class="container">
       <ul class="nav nav-tabs">
         <% if @current_user %>
-        <h1><%= link_to "JamSwap", @current_user %></h1>
+        <p class = "bigger"><%= link_to "JamSwap", @current_user %></p>
         <% else %>
         <h1><%= link_to "JamSwap", root_path %></h1>
         <% end %>
