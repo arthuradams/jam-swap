@@ -3,7 +3,7 @@
 (function(){
   angular
   .module("users", ["ngResource"])
-  .controller("user_controller", ["$resource", UserController])
+  .controller("user_controller", ["$resource", UserController]);
 
   function UserController($resource){
     var vm = this;

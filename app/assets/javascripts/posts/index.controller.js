@@ -3,7 +3,7 @@
 (function(){
   angular
   .module("posts", ["ngResource"])
-  .controller("post_controller", ["$resource", PostController])
+  .controller("post_controller", ["$resource", PostController]);
 
   function PostController($resource){
     var vm = this;

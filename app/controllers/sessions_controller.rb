@@ -5,6 +5,10 @@ class SessionsController < ApplicationController
     @user.email = cookies[:email]
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def create
     input_email = params[:user][:email]
     if User.exists?(email: input_email)
