@@ -12,13 +12,13 @@
       <tr data-ng-repeat="categoryvm in vm.cat_data">
         <td>{{categoryvm.name}}</td>
         <td><button data-ui-sref="categoryShow({id: categoryvm.id})">Show</button></td>
-        <td><button data-ng-click="CategoryIndexViewModel.destroy(CategoryIndexViewModel.categoryvm)">Delete</button></td>
+        <td><button data-ng-click="CategoryIndexViewModel.destroy(categoryvm)">Delete</button></td>
       </tr>
   </tbody>
 </table>
 <br/>
-  <form data-ng-submit="CategoryIndexViewModel.create(CategoryIndexViewModel.newCategory)">
-    <input placeholder="New Category" data-ng-model="CategoryIndexViewModel.newCategory.category" />
+  <form data-ng-submit="CategoryIndexViewModel.create()">
+    <input placeholder="New Category" data-ng-model="CategoryIndexViewModel.category.name" />
     <button type="submit">Create</button>
   </form>
 </main>
