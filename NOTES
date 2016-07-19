@@ -1,104 +1,187 @@
-MULTI IMAGE
-.full {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url('Capital_Summer.jpg');
+ngResource **
 
+making everything in the javascript tag
 
-      background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%);
+format.json{ render json: Category.all } in all controllers?
 
-      background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url('Capital_Summer.jpg') repeat 0 0;;
+**
 
-      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0.7))), url('Capital_Summer.jpg') repeat 0 0;;
+.module("posts", ["ngResource"])
+.controller("post_controller",
+ PostController);
 
-      background: -webkit-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%),url('Capital_Summer.jpg') repeat 0 0;;
+ PostController.$inject= [$resource];
 
-      background: -o-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url('Capital_Summer.jpg') repeat 0 0;;
-
-      background: -ms-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url('Capital_Summer.jpg') repeat 0 0;;
-
-      background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url('Capital_Summer.jpg') repeat 0 0;;
-    }
-
-
-Solution with 1 div and NO transparent image:
-
-You can use the multibackground CSS3 feature and put two backgrounds: one with the image, another with a transparent panel over it (cause I think there's no way to set directly the opacity of the background image):
-
-background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.7) 100%), url(bg.png) repeat 0 0, url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-
-background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.7) 100%), url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,0.7))), url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-
-background: -webkit-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-
-background: -o-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-
-background: -ms-linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-
-background: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%,rgba(255,255,255,0.7) 100%), url(https://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png) repeat 0 0;
-session - new.html.erb
-
-
-<h2>Sign In</h2>
-<%= form_for @user, url: session_path, method: :post do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Submit" %>
-  <%= link_to "Sign Up", new_user_path%>
-<% end %>
+ function
+PostController($resource){
+var vm = this;
+var Post = $resource("/posts/:id.json"),{}
+          update;{method: "PUT"}
+});
+angular
+             automatically know what this is :id is aa variabl
+ANGULAR $resource like inherit active record base
+tells /post.. which url to load from
 
 
 
-create_table :posts do |t|
-  t.string :title, null: false
-  t.text :description, null: false, limit: 4000
-  t.string :email
-  t.string :phone
-  t.string :street
-  t.string :city
-  t.string :state
-  t.string :picture_url
 
-  t.references :category, index: true, foreign_key: true
-  t.references :user, index: true, foreign_key: true
 
-  t.timestamps
-Post.create([{title: ".Net Web Developer SQL, XML/XSL CSS AJAX and XHTML", description: "AAJ Interactive Technoligies is a national trade association that is the leader in its industry. They can provide you competitive pay, an outstanding benefits package, a convenient DC location, a professional collegial work environment and an opportunity to work on issues of national significance.
-This is a full time employee position working directly for our client based in Northwest DC.
-They are looking for a great web/software developer who wants to stay ahead of the technology curve and contribute to meaningful solutions
-The ideal candidate must have strong knowledge of web design and development methodologies and have a desire to stay updated on current and new technologies
-•	Experience with CSS and XHTML and programming languages including JavaScript, Active Server Page (ASP) development, SQL, XML/XSL, and combinations of languages such as AJAX.
-•	Must have experience working with various database systems including SQL Server and frameworks including ADO and ODBC.
-•	Familiarity with Visual Studio development environment.
-•	Familiarity with SharePoint .
-•	Must have strong analytical, organizing and time management skills. Strong working knowledge of software systems and a good understanding of relational databases and major operating systems.
-•	Strong knowledge of the systems development life cycle (planning, analysis, design, programming, implementation, and maintenance.
-Experience with Salesforce and system/data integration tools is a plus but not required.
-Experience with Aptify (Association Management) is a plus but not required.
 
-Education/Experience:
-Degree in Programming, Systems Analysis, or IT or equivalent combination of related education and experience required. A minimum 5 years related work experience to include experience in web programming and web application support to include project management, program development, and training experience. Experience with Salesforce, system/data integration tools, and Aptify (Association Management) is a plus but not required.
-Core Competencies
-• Self-motivated • Able to work under pressure
-• Communication skills (written, oral, and listening)
-• Able to work in diverse groups (collaboration)
-• Strong analytical and design skills
-• Critical thinking
-• Problem solving
-• Detail-oriented
-• Able to take initiative in appropriate situations
-If this sounds like you and you are looking for a new challenge, please reply with your latest resume and salary history.
+Delete require tree directory tree any file in java directory will get
+included when rails precompiles things - when rails pulls all the
+files together and pushes them intogether in one file
+we don't want products.js to be included in the main javascript
+that shows up on every page.
 
-About AAJ Interactive Technologies: AAJ Interactive Technologies, established in 1997 by cutting-edge technology executives, is a technology professional-services company supplying project-based consulting, staff augmentation, and recruiting services to leading firms throughout Metropolitan Washington, DC area. We work differently from most of our competition. In our careers, we have been the ones doing the hiring (managing and mentoring large staffs in a corporate culture), and we have been the ones being hired (consulting in small and large roles alike). This unique perspective allows us to understand both sides of this business. We take the time to ensure our consultants/candidates will be successful where they are placed. We believe that because of our principles we have succeeded where others have failed. The recruiting/technology space can be full of companies that are not really looking out for your interests ask around we're not one of them! We want you to succeed, and we'll do everything we can to help you do just that!"
-email: "pjjm2-5687045747@job.craigslist.org",
-phone:"",
-street:"",
-city:"Northwest Washington"
-state:"DC"
-Picture URL:/AJ Ineractive.jpg
-USER_ID: 1
-CATEGORY_ID: 1
+same thing in css - done already.
+
+only in products.js? otherwise js wont validate
+//=require angular
+//= require angular-resource
+
+when rails precompiles this it will automatically
+figure out where angular and angular-resource are telling
+should be in the vendor folder and it will
+automatically include them when it precompiles actually
+instruction to rails to include them when precompiles.
+
+same thing in stylesheet:
+/*
+*= require bootstrap
+/*
+
+config/initializers/assets.rb
+
+precompile additional assets when rails starts
+will only precompile application.js application.css
+need to say all js files - see done should we double check?
+also need css files
+
+have in users index.html - how many files need this????
+<%= javascript_include_tag "users", property: "stylesheet" %>
+
+property: 'stylesheet"need for validation cuz thinks like link tags not allowed
+
+robin also put
+<% stylesheet_link_tab "products.css" %>
+
+***************************
+
+he had his json file in products.dta.json in db then in seeds:
+data = JSON.parse(File.read("db/products_data.json"))
+Product.destroy_all
+Product.create!(data) - creates one thing for each item
+                        in array.
+*****************
+
+connect to data base.
+
+go to posts.controller - send data user wants if wants
+   JSON send json... otherwise send html.
+
+have it in categories controller do we need it
+in all controllers??????????????????????????????????
+
+def index
+  respond_to do |format|
+    format.html           so when something asks format
+                         html will do defalt action format
+                         index group is so index.html
+                        so what is in url will expect html
+    format.json{ render json: Category.all }
+  end
+end
+
+******************************
+
+NOW LOAD DATA
+
+products.js
+
+load ng resource in index.js - don't need in
+ other controllers??
+
+ so set up like this:
+
+ .module("posts", ["ngResource"])
+ .controller("post_controller",
+  PostController);
+
+  PostController.$inject= [$resource];
+
+  function
+PostController($resource){
+var vm = this;
+var Post = $resource("/posts/:id.json"),{}
+           update;{method: "PUT"}
+});
+ angular
+              automatically know what this is :id is aa variabl
+ANGULAR $resource like inherit active record base
+tells /post.. which url to load from
+
+****************
+product.js
+vm.product now becomes product.query()
+    angular thing it will query database and get all products
+
+*****************
+I THINK THIS WAS DONE JUST LIKE example
+
+
+need costs to show up can't to .to_fixed check!!!!!!!
+once get all data back with query run
+function
+
+vm.data = Product.query(function(response){
+  vm.data.forEach(function(product){
+     product.cost=parseFloat(product.cost):
+  });
+})
+*****************
+
+now set up destroy - first go to prodcuts controller
+
+var product =
+var product = vm.data{product_index].}
+vm.destroy - function(product_index){
+  Product.remove({id:productid})
+} function(response){
+vm.data.splice(product_index, 1);
+});
+}
+
+anytime see call back in ng resource only fir call pack when not fired.
+klllllllllllllllllllll
+post_controller.rb
+def destroy
+  Post.destroy(params[:id])
+  render json: {success: true}, status: :ok
+end
+
+
+put remove in destoy function
+
+post_controller.rb
+
+def destory
+ Post.destroy(param[:id])
+ render json: {success:true},status: - sends 200 status controller
+ :ok
+ end
+
+ make sure that ApplicationController
+  does not have protect_from_forgery with: :exception
+   only will let you read comment it Out
+THIS WAS DONE
+
+*********************
+delete button sends an ajax request to post_
+controller to delete
+
+**************************************
+
+can varify where runnning rails s
+
+********************************
