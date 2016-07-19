@@ -18,19 +18,21 @@
     }
 
     vm.destroy = function(comment_index){
+      console.log(comment_index)
       var comment = vm.com_data[comment_index];
-      Comment.remove({id: comment.id}, function(response){
+      Comment.remove(comment_index, function(response){
         if(response.success) vm.com_data.splice(comment_index, 1);
       });
     }
 
-    vm.new_comment = {};
+    vm.comment = new Comment();
     vm.create = function(){
-      Comment.save(vm.new_comment, function(response){
-        vm.com_data.push(response);
-        vm.new_comment = {};
+      vm.comment.$save(function(response){
+        console.log(vm.comment)
+        if(response.success) vm.com_data.push();
       });
     }
+
 
     vm.update = function(comment){
       Comment.update({id: comment.id}, comment, function(response){

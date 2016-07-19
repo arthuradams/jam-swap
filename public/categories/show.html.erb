@@ -1,15 +1,10 @@
-<main data-ng-controller="CategoryShowController as vm">
-<p id="notice"><%= notice %></p>
-
-<p>
+<main data-ng-controller="category_controller as vm">
+<tr data-ng-repeat="categoryvm in vm.cat_data">
   <strong>Name:</strong>
-  <%= @category.name %>
-</p>
-<form data-ng-submit="CategoryShowViewModel.update(CategoryShowViewModel.category)">
-  <input placeholder="Category Name" data-ng-model="CategoryShowViewModel.category.name" />
+  <a data-ui-sref="categoryShow({id: categoryvm.id})">{{categoryvm.name}}</a>
+</tr>
+<form data-ng-submit="CategoryIndexViewModel.update()">
+  <input placeholder="Category Name" data-ng-model="CategoryIndexViewModel.category.name" />
   <button type="submit">Edit</button>
 </form>
-
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
 </main>
