@@ -15,38 +15,18 @@ class CommentsController < ApplicationController
   end
 
   def create
-    user_id = @current_user.id
-    category_id = @post.category_id
-    @comment = @post.comments.new(comment_params)
-    @comment.category_id = category_id
-    @comment.user_id = user_id
-    @comment.save
-
-    render json: @product, status: :ok
+    @category = Comment.create()
+    render json: @comment, status: :ok
   end
 
-  # PATCH/PUT /comments/1
-  # PATCH/PUT /comments/1.json
   def update
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
+    @comment.update!(comment_params)
+    render json: @comment, status: :ok
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
   def destroy
     Comment.destroy(params[:id])
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    render json: {success: true}, status: :ok
   end
 
   private

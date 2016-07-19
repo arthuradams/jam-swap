@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    render json: @product, status: :ok
+    render json: @category, status: :ok
   end
 
   def update
