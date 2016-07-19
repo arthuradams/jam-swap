@@ -1,8 +1,5 @@
 <main data-ng-controller="category_controller as vm">
-<p id="notice"><%= notice %></p>
-
 <h1>Categories</h1>
-
 <table>
   <thead>
     <tr>
@@ -10,18 +7,18 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  <br/>
   <tbody>
       <tr data-ng-repeat="categoryvm in vm.cat_data">
         <td>{{categoryvm.name}}</td>
-        <td><a data-ui-sref="categoryShow({id: categoryvm.id})">Show</a></td>
-        <td><a data-ng-click="CategoryShowViewModel.update(CategoryShowViewModel.categoryvm)">Edit</a></td>
-        <td><a data-ng-click="CategoryShowViewModel.destroy(CategoryShowViewModel.categoryvm)">Delete</a></td>
+        <td><button data-ui-sref="categoryShow({id: categoryvm.id})">Show</button></td>
+        <td><button data-ng-click="CategoryIndexViewModel.destroy(categoryvm)">Delete</button></td>
       </tr>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+<br/>
+  <form data-ng-submit="CategoryIndexViewModel.create()">
+    <input placeholder="New Category" data-ng-model="CategoryIndexViewModel.category.name" />
+    <button type="submit">Create</button>
+  </form>
 </main>

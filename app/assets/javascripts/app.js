@@ -19,7 +19,7 @@
       .state("sessionNew", {
         url: "/sessions",
         templateUrl: "sessions/new.html.erb",
-        controller: "SessionNewController",
+        controller: "session_controller",
         controllerAs: "SessionNewViewModel"
       })
       .state("sessionShow", {
@@ -31,7 +31,7 @@
       .state("userIndex", {
         url: "/users",
         templateUrl: "users/index.html.erb",
-        controller: "UserIndexController",
+        controller: "user_controller",
         controllerAs: "UserIndexViewModel"
       })
       .state("userShow", {
@@ -43,7 +43,7 @@
       .state("categoryIndex", {
         url: "/categories",
         templateUrl: "categories/index.html.erb",
-        controller: "CategoryIndexController",
+        controller: "category_controller",
         controllerAs: "CategoryIndexViewModel"
       })
       .state("categoryShow", {
@@ -55,7 +55,7 @@
       .state("postIndex", {
         url: "/posts",
         templateUrl: "posts/index.html.erb",
-        controller: "PostIndexController",
+        controller: "post_controller",
         controllerAs: "PostIndexViewModel"
       })
       .state("postShow", {
@@ -67,7 +67,7 @@
       .state("commentIndex", {
         url: "/comments",
         templateUrl: "comments/index.html.erb",
-        controller: "CommentIndexController",
+        controller: "comment_controller",
         controllerAs: "CommentIndexViewModel"
       })
       .state("commentShow", {
