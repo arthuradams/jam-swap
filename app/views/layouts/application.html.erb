@@ -13,28 +13,13 @@
   <body>
     <div class="container">
       <ul class="nav nav-tabs">
-        <% if @current_user %>
-        <h1><%= link_to "JamSwap", @current_user %></h1>
-        <% else %>
-        <h1><%= link_to "JamSwap", root_path %></h1>
-        <% end %>
-        <% if @current_user %>
-        <li><%= link_to "Welcome, #{@current_user.email}!", user_path(@current_user) if @current_user %></li>
-        <li><%= link_to "Sign Out", session_path, method: :delete if @current_user %></li>
+        <h1>JamSwap</h1>
         <li><a data-ui-sref="categoryIndex">Categories</a></li>
         <li><a data-ui-sref="postIndex">Posts</a></li>
         <li><a data-ui-sref="commentIndex">Comments</a></li>
         <li><a data-ui-sref="userIndex">Users</a></li>
-
       </ul>
-      <% else %>
-      <% end %>
-      <% flash.each do |type, message| %>
-        <p class="<%= type %>"><%= message %></p>
-      <% end %>
       <div data-ui-view></div>
-      <!-- <%= yield %> -->
-
     </div>
   </body>
 </html>

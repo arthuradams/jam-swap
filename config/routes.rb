@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
-
+  root to: redirect("/categories")
   resources :comments
   resources :categories do
     resources :posts
@@ -9,6 +8,4 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :users
-  resource  :session
-
 end

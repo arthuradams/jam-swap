@@ -39,10 +39,6 @@
   <strong>Picture url:</strong>
   <%= @post.picture_url %>
 </p>
-<form data-ng-submit="PostShowViewModel.update(PostShowViewModel.post)">
-  <input placeholder="Post Title" data-ng-model="PostShowViewModel.post.title" />
-  <button type="submit">Edit</button>
-</form>
 
 <%= link_to 'Comment', new_post_comment_path(@post) %> |
 <%= link_to 'Edit', edit_post_path(@post) %> |

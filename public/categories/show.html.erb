@@ -1,9 +1,15 @@
+<main data-ng-controller="CategoryShowController as vm">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
   <%= @category.name %>
 </p>
+<form data-ng-submit="CategoryShowViewModel.update(CategoryShowViewModel.category)">
+  <input placeholder="Category Name" data-ng-model="CategoryShowViewModel.category.name" />
+  <button type="submit">Edit</button>
+</form>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
+</main>
