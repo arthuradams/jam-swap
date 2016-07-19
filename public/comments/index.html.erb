@@ -1,8 +1,5 @@
 <main data-ng-controller="comment_controller as vm">
-<p id="notice"><%= notice %></p>
-
 <h1>Comments</h1>
-
 <table>
   <thead>
     <tr>
@@ -10,18 +7,13 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
       <tr data-ng-repeat="commentvm in vm.com_data">
         <td>{{commentvm.comment}}</td>
         <td><a data-ui-sref="commentShow({id: commentvm.id})">Show</a></td>
-        <td><a data-ng-click="CommentShowViewModel.update(CommentShowViewModel.commentvm)">Edit</a></td>
-        <td><a data-ng-click="CommentShowViewModel.destroy(CommentShowViewModel.commentvm)">Delete</a></td>
+        <td><a data-ng-click="CommentShowViewModel.update(CommentShowViewModel.comment)">Edit</a></td>
+        <td><a data-ng-click="CommentShowViewModel.destroy(CommentShowViewModel.comment)">Delete</a></td>
       </tr>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Comment', new_comment_path %>
 </main>

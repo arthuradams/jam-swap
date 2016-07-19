@@ -1,8 +1,5 @@
-<%= javascript_include_tag "users" %>
-<div class="container" data-ng-app="users">
 <main data-ng-controller="user_controller as vm">
 <h1>Users</h1>
-
 <table>
   <thead>
     <tr>
@@ -10,12 +7,9 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
       <tr data-ng-repeat="user in vm.user_data">
         <td>{{user.email}}</td>
       </tr>
   </tbody>
 </table>
-</main>
-</div>
