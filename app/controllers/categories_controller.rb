@@ -22,9 +22,13 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    @category = Category.find(category_params[:category_id])
-    @category.update!(category_params)
-    render json: @category, status: :ok
+      puts "we are in update"
+      @category = Category.find(category_params[:category_id])
+      @category.update!(category_params)
+      respond_to do |format|
+        format.html
+        format.json{ render json: @category}
+      end
   end
 
 

@@ -19,7 +19,7 @@
       console.log("button click")
       var categoryID = JSON.stringify(this.category.id)
             console.log(categoryID)
-      this.category.$update({categoryID});
+      this.category.$update({id: $stateParams.id});
     }
     this.destroy = function(category){
       console.log(category)
