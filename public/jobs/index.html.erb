@@ -1,0 +1,28 @@
+<main data-ng-controller="job_controller as vm">
+<h1>Jobs</h1>
+<input type="text" class="form-control" placeholder="Search" data-ng-model="vm.filter_on" />
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <br/>
+  <tbody>
+    <tr>
+      <tr data-ng-repeat="jobvm in vm.job_data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+        <td><a data-ui-sref="jobShow({id: jobvm.id})">{{jobvm.title}}</a></td>
+        <td><button data-ng-click="vm.destroy(jobvm)">Delete</button></td>
+      </tr>
+  </tbody>
+</table>
+<br/>
+<h3>Add A New Job</h3>
+<form data-ng-submit="JobIndexViewModel.create() | filter: vm.filter_on ">
+  <input placeholder="Job Title" data-ng-model="JobIndexViewModel.job.title" />
+  <input placeholder="Job Description" data-ng-model="JobIndexViewModel.job.description" />
+  <input placeholder="Job Posting URL" data-ng-model="JobIndexViewModel.job.url" />
+  <button type="submit">Create</button>
+</form>
+</main>

@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
-  root to: redirect("/categories")
-  resources :comments
-  resources :categories do
-    resources :posts
-  end
-  resources :posts do
-    resources :comments
-  end
-  resources :users
+  root to: redirect("/homes")
+  resources :homes
+  resources :jobs
+  resources :meetups
+  resources :posts
 end
