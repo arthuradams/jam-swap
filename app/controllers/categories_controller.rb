@@ -23,7 +23,7 @@ class CategoriesController < ApplicationController
 
   def update
       puts "we are in update"
-      @category = Category.find(category_params[:category_id])
+      @category = Category.find(params[:id])
       @category.update!(category_params)
       respond_to do |format|
         format.html
