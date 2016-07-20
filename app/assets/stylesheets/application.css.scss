@@ -1,1 +1,48 @@
 @import "bootstrap";
+
+
+.full {
+    background-image: url('Capitol_Large.jpg');
+      background-size: contain;
+      // background-repeat: no-repeat;
+      //    background-size: 100% 100%;
+
+}
+
+a.btn {
+  margin-right: 10px;
+}
+
+
+
+h1{
+  font-family:'Luckiest Guy', sans-serif;
+  font-size: 6em;
+  text-align:center;
+  padding-top: 20px;
+  letter-spacing:.05em;
+  color:#fff;
+  text-shadow:.03em .03em 0 #000;
+  -webkit-text-stroke: 1px #000;
+}
+
+h2 {
+  font-size:4em;
+  font-weight: bolder;;
+  letter-spacing:.05em;
+  text-align: center;
+  color:#fff;
+  text-shadow:.03em .03em 0 #000;
+  -webkit-text-stroke: 1px #000;
+}
+
+h3{
+  font-size:3em;
+  letter-spacing:.05em;
+}
+
+.larger {
+  font-size: 20px;
+  font-weight:bold;
+  padding: 8Spx;
+}

@@ -9,7 +9,7 @@
   ]);
 
   function CategoryFactoryFunction($resource) {
-    return $resource("http://localhost:3000/categories/:id", {}, {
+    return $resource("http://localhost:3000/categories/:id.json", {}, {
       update: {method: "PUT"}
     });
   }

@@ -1,0 +1,33 @@
+GREY
+<a href="#" class="btn btn-default">Default</a>
+PINK
+<a href="#" class="btn btn-primary">Primary</a>
+GREEN
+<a href="#" class="btn btn-success">Success</a>
+BLUE
+<a href="#" class="btn btn-info">Info</a>
+YELLOW
+<a href="#" class="btn btn-warning">Warning</a>
+ORANGE
+<a href="#" class="btn btn-danger">Danger</a>
+clear
+<a href="#" class="btn btn-link">Link</a>
+
+
+
+function CategoryShowControllerFunction(CategoryFactory, $stateParams){
+  this.category = CategoryFactory.get({id: $stateParams.id})
+  this.update = function(){
+  this.category.$update({id: $stateParams.id})
+  }
+<button type="button" data-ng-click="SongShowViewModel.Update(song)">Update</button>
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <input value="CategoryShowViewModel.name" data-ng-model="CategoryShowViewModel.name">
+  </p>
+
+  <%= link_to 'Edit', edit_category_path(this.category) %> |
+  <%= link_to 'Back', categories_path %>

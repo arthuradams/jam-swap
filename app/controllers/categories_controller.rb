@@ -9,6 +9,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    puts "IN SHOW"
+    @category = Category.find(params[:id])
   end
 
   def edit
@@ -20,9 +22,14 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    @category = Category.find(category_params[:category_id])
     @category.update!(category_params)
     render json: @category, status: :ok
   end
+
+
+
+
 
   def destroy
     Category.destroy(params[:id])

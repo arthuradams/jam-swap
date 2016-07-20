@@ -52,6 +52,12 @@
         controller: "CategoryShowController",
         controllerAs: "CategoryShowViewModel"
       })
+      .state("categoryEdit", {
+        url: "/categories/:id/edit",
+        templateUrl: "categories/edit.html.erb",
+        controller: "CategoryEditController",
+        controllerAs: "CategoryEditViewModel"
+      })
       .state("postIndex", {
         url: "/posts",
         templateUrl: "posts/index.html.erb",
