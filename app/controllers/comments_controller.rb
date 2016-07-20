@@ -22,7 +22,8 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find(params[:id])
-    @comment.update!(comment_params)
+    binding.pry
+    @comment.update(comment_params)
     respond_to do |format|
       format.html
       format.json{ render json: @comment}

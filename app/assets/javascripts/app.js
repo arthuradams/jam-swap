@@ -89,7 +89,7 @@
         controllerAs: "CommentIndexViewModel"
       })
       .state("commentEdit", {
-        url: "/comments",
+        url: "/comments/:id/edit",
         templateUrl: "comments/edit.html.erb",
         controller: "CommentEditController",
         controllerAs: "CommentEditViewModel"
