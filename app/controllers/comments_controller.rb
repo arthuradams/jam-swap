@@ -9,19 +9,24 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @comment = Comment.find(params[:id])
   end
 
   def edit
   end
 
   def create
-    @category = Comment.create()
+    @comment = Comment.create(comment_params)
     render json: @comment, status: :ok
   end
 
   def update
+    @comment = Comment.find(params[:id])
     @comment.update!(comment_params)
-    render json: @comment, status: :ok
+    respond_to do |format|
+      format.html
+      format.json{ render json: @comment}
+    end
   end
 
   def destroy

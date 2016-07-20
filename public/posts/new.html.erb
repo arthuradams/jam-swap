@@ -1,0 +1,14 @@
+<main data-ng-controller="post_controller as vm">
+<h3>Create a New Post</h3>
+<form>
+  <input placeholder= "Title" data-ng-model="vm.new_post.title" />
+  <input placeholder= "Description" data-ng-model="vm.new_post.description" />
+  <input placeholder= "Email" data-ng-model="vm.new_post.email" />
+  <input placeholder= "Phone" data-ng-model="vm.new_post.phone" />
+  <input placeholder= "Street" data-ng-model="vm.new_post.street" />
+  <input placeholder= "City" data-ng-model="vm.new_post.city" />
+  <input placeholder= "State" data-ng-model="vm.new_post.state" />
+  <input placeholder= "Picture_url" data-ng-model="vm.new_post.picture_url" />
+  <button type = "button" data-ng-click="PostIndexViewModel.create()">Create</button>
+</form>
+</main>

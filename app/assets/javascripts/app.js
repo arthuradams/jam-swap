@@ -64,6 +64,18 @@
         controller: "post_controller",
         controllerAs: "PostIndexViewModel"
       })
+      .state("postNew", {
+        url: "/posts/new",
+        templateUrl: "posts/new.html.erb",
+        controller: "post_controller",
+        controllerAs: "PostIndexViewModel"
+      })
+      .state("postEdit", {
+        url: "/posts/:id/edit",
+        templateUrl: "posts/edit.html.erb",
+        controller: "PostEditController",
+        controllerAs: "PostEditViewModel"
+      })
       .state("postShow", {
         url: "/posts/:id",
         templateUrl: "posts/show.html.erb",
@@ -75,6 +87,12 @@
         templateUrl: "comments/index.html.erb",
         controller: "comment_controller",
         controllerAs: "CommentIndexViewModel"
+      })
+      .state("commentEdit", {
+        url: "/comments",
+        templateUrl: "comments/edit.html.erb",
+        controller: "CommentEditController",
+        controllerAs: "CommentEditViewModel"
       })
       .state("commentShow", {
         url: "/comments/:id",

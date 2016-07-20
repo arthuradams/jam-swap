@@ -1,0 +1,12 @@
+<strong>Update Comment Information</strong>
+<form>
+  <input  placeholder="Comment" data-ng-model="CommentEditViewModel.comment.comment">
+
+  <button type="button" data-ng-click="CommentEditViewModel.update()">Update</button>
+</form>
+
+<a data-ui-sref="CommentEdit({id: CommentEditViewModel.comment.id})">{{CommentEditViewModel.comment.comment}}</a>
+<main data-ng-controller="comment_controller as vm">
+
+
+</main>

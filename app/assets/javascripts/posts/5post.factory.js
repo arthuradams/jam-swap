@@ -9,7 +9,7 @@
   ]);
 
   function PostFactoryFunction($resource) {
-    return $resource("http://localhost:3000/posts/:id", {}, {
+    return $resource("http://localhost:3000/posts/:id.json", {}, {
       update: {method: "PUT"}
     });
   }

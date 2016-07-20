@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: redirect("/categories")
   resources :comments
+  resources :posts
   resources :categories do
     resources :posts
   end

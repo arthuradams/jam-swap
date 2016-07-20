@@ -1,5 +1,5 @@
 <main data-ng-controller="comment_controller as vm">
-<h1>Comments</h1>
+<h2>Comments</h2>
 <table>
   <thead>
     <tr>
@@ -19,6 +19,6 @@
 <br/>
 <form data-ng-submit="CommentIndexViewModel.create()">
   <input placeholder="New Comment" data-ng-model="CommentIndexViewModel.comment.comment" />
-  <button type="submit">Create</button>
+  <button class="btn btn-info btn-sm" type="submit">Create</button>
 </form>
 </main>

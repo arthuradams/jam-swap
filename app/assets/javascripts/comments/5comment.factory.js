@@ -9,7 +9,7 @@
   ]);
 
   function CommentFactoryFunction($resource) {
-    return $resource("http://localhost:3000/comments/:id", {}, {
+    return $resource("http://localhost:3000/comments/:id.json", {}, {
       update: {method: "PUT"}
     });
   }

@@ -3,9 +3,9 @@
 (function(){
   angular
   .module("posts", ["ngResource"])
-  .controller("post_controller", ["$resource", PostController]);
+  .controller("post_controller", ["$resource", "PostFactory", PostController]);
 
-  function PostController($resource){
+  function PostController($resource, PostFactory){
     var vm = this;
     var Post = $resource("/posts/:id.json", {}, {
       update: {method: "PUT"}
@@ -19,15 +19,20 @@
 
     vm.destroy = function(post_index){
       var post = vm.post_data[post_index];
-      Post.remove({id: post.id}, function(response){
+      Post.remove(post_index, function(response){
         if(response.success) vm.post_data.splice(post_index, 1);
       });
     }
 
     vm.new_post = {};
-    vm.create = function(){
-      Post.save(vm.new_post, function(response){
-        vm.post_data.push(response);
+    console.log("NEW POST")
+    vm.create = function(title, description){
+      console.log(vm.new_post);
+      vm.new_post = new PostFactory();
+      console.log(vm.new_post);
+      vm.new_post.$save().then(function(response){
+        console.log(response)
+        // vm.post_data.push(response);
         vm.new_post = {};
       });
     }

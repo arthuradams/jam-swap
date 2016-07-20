@@ -1,49 +1,16 @@
-<p id="notice"><%= notice %></p>
+<h4>Title</h4>
+<strong>{{PostShowViewModel.post.title}}</strong>
+<div>
+  <p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
+  <ul>
+    <li>Description:  -{{PostShowViewModel.post.description}}</li>
+    <li>Email:   -{{PostShowViewModel.post.email}}</li>
+    <li>Phone:  -{{PostShowViewModel.post.phone}}</li>
+    <li>Street:   -{{PostShowViewModel.post.street}}</li>
+    <li>City:   -{{PostShowViewModel.post.city}}</li>
+    <li>State:  -{{PostShowViewModel.post.state}}</li>
+    <li>Picture url: -{{PostShowViewModel.post.picture_url}}</li>
 </p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @post.email %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @post.phone %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @post.street %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @post.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @post.state %>
-</p>
-
-<p>
-  <strong>Picture url:</strong>
-  <%= @post.picture_url %>
-</p>
-<form data-ng-submit="PostShowViewModel.update(PostShowViewModel.post)">
-  <input placeholder="Post Title" data-ng-model="PostShowViewModel.post.title" />
-  <button type="submit">Edit</button>
-</form>
-
-<%= link_to 'Comment', new_post_comment_path(@post) %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<button data-ui-sref="postEdit({id: PostShowViewModel.post.id})">Edit</button>
