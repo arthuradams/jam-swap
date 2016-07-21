@@ -10,7 +10,7 @@
 
   function HomeController($resource){
     var vm = this;
-    var Home = $resource("/homes/:id.json", {}, {
+    var Home = $resource("/home/:id.json", {}, {
       update: {method: "PUT"}
     });
     vm.cat_data = Home.query();

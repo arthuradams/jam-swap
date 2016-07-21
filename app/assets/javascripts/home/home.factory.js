@@ -9,7 +9,7 @@
   ]);
 
   function HomeFactoryFunction($resource) {
-    return $resource("http://localhost:3000/homes/:id", {}, {
+    return $resource("http://localhost:3000/home/:id", {}, {
       update: {method: "PUT"}
     });
   }

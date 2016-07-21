@@ -3,9 +3,9 @@
 (function(){
   angular
   .module("jobs", ["ngResource"])
-  .controller("job_controller", ["$resource", JobController]);
+  .controller("job_controller", ["$resource", "$state", JobController]);
 
-  function JobController($resource){
+  function JobController($resource, $state){
     var vm = this;
     var Job = $resource("/jobs/:id.json", {}, {
       update: {method: "PUT"}
@@ -19,7 +19,9 @@
 
     vm.destroy = function(job_index){
       var job = vm.job_data[job_index];
+      console.log(job_index)
       Job.remove(job_index, function(response){
+        $state.go($state.current, {}, {reload: true});
         if(response.success) vm.job_data.splice(job_index, 1);
       });
     }
@@ -28,7 +30,8 @@
     vm.create = function(){
       vm.job.$save(function(response){
         console.log(vm.job)
-        if(response.success) vm.job_data.push();
+        $state.go($state.current, {}, {reload: true});
+        if(response.success) vm.job_data.push(response);
       });
     }
 

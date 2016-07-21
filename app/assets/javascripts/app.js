@@ -15,13 +15,13 @@
       $locationProvider.html5Mode(true);
       $stateProvider
       .state("homeIndex", {
-        url: "/homes",
+        url: "/home",
         templateUrl: "homes/index.html.erb",
         controller: "home_controller",
         controllerAs: "HomeIndexViewModel"
       })
       .state("homeShow", {
-        url: "/homes/:id",
+        url: "/home/:id",
         templateUrl: "homes/show.html.erb",
         controller: "HomeShowController",
         controllerAs: "HomeShowViewModel"

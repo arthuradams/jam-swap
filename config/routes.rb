@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root to: redirect("/homes")
-  resources :homes
+  root to: redirect("/home")
+
+  resources :home
   resources :jobs
   resources :meetups
   resources :posts

@@ -1,14 +1,15 @@
-<p>
-  <strong>Title:</strong>
-  <p>{{JobShowViewModel.job.title}}</p>
-</p>
+<main data-ng-controller="job_controller as vm">
 
-<p>
-  <strong>Description:</strong>
-  <p>{{JobShowViewModel.job.description}}</p>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <p>{{JobShowViewModel.job.url}}</p>
-</p>
+<div class="panel panel-default" data-ng-repeat="jobvm in vm.job_data">
+  <div class="panel-heading"><strong>{{JobShowViewModel.job.title}}</strong>
+    <p data-ui-sref="jobShow({id: jobvm.id})">{{jobvm.created_at | date:'mediumDate'}}</p>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Description:</strong>
+      <p>{{JobShowViewModel.job.description}}</p>
+    </p>
+  </div>
+  <div class="panel-footer"><strong>Url:</strong><p>{{JobShowViewModel.job.url}}</p></div>
+</div>
+</main>

@@ -1,28 +1,37 @@
 <main data-ng-controller="job_controller as vm">
-<h1>Jobs</h1>
+<h2>Jobs</h2>
 <input type="text" class="form-control" placeholder="Search" data-ng-model="vm.filter_on" />
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
   <br/>
   <tbody>
+    <table class="table table-striped table-hover ">
+  <thead>
     <tr>
-      <tr data-ng-repeat="jobvm in vm.job_data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
-        <td><a data-ui-sref="jobShow({id: jobvm.id})">{{jobvm.title}}</a></td>
-        <td><button data-ng-click="vm.destroy(jobvm)">Delete</button></td>
-      </tr>
+      <th>Date</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-ng-repeat="jobvm in vm.job_data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+      <td><p data-ui-sref="jobShow({id: jobvm.id})">{{jobvm.created_at | date:'mediumDate'}}</p></td>
+      <td><a data-ui-sref="jobShow({id: jobvm.id})">{{jobvm.title}}</a></td>
+      <td><button data-ng-click="JobIndexViewModel.destroy(jobvm)">Delete</button></td>
+    </tr>
   </tbody>
 </table>
 <br/>
-<h3>Add A New Job</h3>
-<form data-ng-submit="JobIndexViewModel.create() | filter: vm.filter_on ">
-  <input placeholder="Job Title" data-ng-model="JobIndexViewModel.job.title" />
-  <input placeholder="Job Description" data-ng-model="JobIndexViewModel.job.description" />
-  <input placeholder="Job Posting URL" data-ng-model="JobIndexViewModel.job.url" />
-  <button type="submit">Create</button>
+<form data-ng-submit="JobIndexViewModel.create() ">
+  <label class="control-label" for="focusedInput"><h3>Add A New Job</h3></label>
+  <div class="form-group">
+    <input class="form-control" placeholder="Job Title" data-ng-model="JobIndexViewModel.job.title" />
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Job Description" data-ng-model="JobIndexViewModel.job.description" />
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Job Posting URL" data-ng-model="JobIndexViewModel.job.url" />
+  </div>
+  <div class="form-group">
+    <button type="submit">Submit</button>
+  </div>
 </form>
 </main>

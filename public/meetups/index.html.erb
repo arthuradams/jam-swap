@@ -1,27 +1,37 @@
 <main data-ng-controller="meetup_controller as vm">
-<h1>Meetups</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h2>Meetups</h2>
+<input type="text" class="form-control" placeholder="Search" data-ng-model="vm.filter_on" />
   <br/>
   <tbody>
+    <table class="table table-striped table-hover ">
+  <thead>
     <tr>
-      <tr data-ng-repeat="meetupvm in vm.meetup_data">
-        <td><a data-ui-sref="meetupShow({id: meetupvm.id})">{{meetupvm.title}}</a></td>
-        <td><button data-ng-click="MeetupIndexViewModel.destroy(meetupvm)">Delete</button></td>
-      </tr>
+      <th>Date</th>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-ng-repeat="meetupvm in vm.meetup_data | filter: vm.filter_on | orderBy: vm.sort_on : vm.is_descending">
+      <td><p data-ui-sref="meetupShow({id: meetupvm.id})">{{meetupvm.created_at | date:'mediumDate'}}</p></td>
+      <td><a data-ui-sref="meetupShow({id: meetupvm.id})">{{meetupvm.title}}</a></td>
+      <td><button data-ng-click="MeetupIndexViewModel.destroy(meetupvm)">Delete</button></td>
+    </tr>
   </tbody>
 </table>
 <br/>
-<h3>Add A New Meetup</h3>
-<form data-ng-submit="MeetupIndexViewModel.create()">
-  <input placeholder="Meetup Title" data-ng-model="MeetupIndexViewModel.meetup.title" />
-  <input placeholder="Meetup Description" data-ng-model="MeetupIndexViewModel.meetup.description" />
-  <input placeholder="Meetup Posting URL" data-ng-model="MeetupIndexViewModel.meetup.url" />
-  <button type="submit">Create</button>
+<form data-ng-submit="MeetupIndexViewModel.create() ">
+  <label class="control-label" for="focusedInput"><h3>Add A New Meetup</h3></label>
+  <div class="form-group">
+    <input class="form-control" placeholder="Meetup Title" data-ng-model="MeetupIndexViewModel.meetup.title" />
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Meetup Description" data-ng-model="MeetupIndexViewModel.meetup.description" />
+  </div>
+  <div class="form-group">
+    <input class="form-control" placeholder="Meetup Posting URL" data-ng-model="MeetupIndexViewModel.meetup.url" />
+  </div>
+  <div class="form-group">
+    <button type="submit">Submit</button>
+  </div>
 </form>
 </main>

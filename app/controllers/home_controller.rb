@@ -1,4 +1,4 @@
-class HomesController < ApplicationController
+class HomeController < ApplicationController
   before_action :set_home, only: [:show, :edit, :update]
 
   def index
