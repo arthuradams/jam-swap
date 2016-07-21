@@ -1,16 +1,27 @@
 <h4>Title</h4>
 <strong>{{PostShowViewModel.post.title}}</strong>
-<div>
+<div class="container-fluid">
   <p>
-
+<span class="pull-left">Address :{{PostShowViewModel.post.street}} -- {{PostShowViewModel.post.city}} {{PostShowViewModel.post.state}}</span>
+<span class="pull-right">Contact Email : {{PostShowViewModel.post.email}}, Phone :{{PostShowViewModel.post.phone}}</span>
 <p>
-  <ul>
-    <li>Description:  -{{PostShowViewModel.post.description}}</li>
-    <li>Email:   -{{PostShowViewModel.post.email}}</li>
-    <li>Phone:  -{{PostShowViewModel.post.phone}}</li>
-    <li>Street:   -{{PostShowViewModel.post.street}}</li>
-    <li>City:   -{{PostShowViewModel.post.city}}</li>
-    <li>State:  -{{PostShowViewModel.post.state}}</li>
-    <li>Picture url: -{{PostShowViewModel.post.picture_url}}</li>
+    <br>
+      <br>
+
+    <div class="commentBox">{{PostShowViewModel.post.description}}</div>
+    <br>
+    <div><img src={{PostShowViewModel.post.picture_url}} alt=""</div>
 </p>
-<button data-ui-sref="postEdit({id: PostShowViewModel.post.id})">Edit</button>
+<button data-ui-sref="postEdit({id: PostShowViewModel.post.id})">Edit Post</button>
+<br>
+<form data-ng-submit="CommentIndexViewModel.create()">
+  <input placeholder="Write a Comment" data-ng-model="CommentIndexViewModel.comment.message" />
+  <button class="btn btn-info btn-sm" type="submit">Create</button>
+</form>
+<h4>Comments</h4>
+<div class="commentBox">
+  <div class="comment" data-ng-repeat="comment in PostShowViewModel.comments">
+    <p>{{comment.message}}</p>
+  <br>
+  </div>
+</div>

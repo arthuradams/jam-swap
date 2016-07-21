@@ -3,7 +3,10 @@
 (function(){
   angular
   .module("comments", ["ngResource"])
-  .controller("comment_controller", ["$resource", CommentController]);
+  .controller("comment_controller", [
+    "$resource",
+
+    CommentController]);
 
   function CommentController($resource){
     var vm = this;
@@ -25,8 +28,9 @@
       });
     }
 
-    vm.comment = new Comment();
+    vm.comment = new CommentFactory();
     vm.create = function(){
+      this.comments = CommentFactory.query({post_id: $stateParams.id})
       vm.comment.$save(function(response){
         console.log(vm.comment)
         if(response.success) vm.com_data.push();
@@ -34,8 +38,8 @@
     }
 
 
-    vm.update = function(comment){
-      Comment.update({id: comment.id}, comment, function(response){
+    vm.update = function(message){
+      Comment.update({id: comment.id}, message, function(response){
         console.log("Comment updated!");
       });
     }

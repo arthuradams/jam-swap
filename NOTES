@@ -1,3 +1,60 @@
+<main data-ng-controller="post_controller as vm">
+<h3>Create a New Post</h3>
+<form>
+  <input placeholder= "Title" data-ng-model="vm.new_post.title" />
+  <input placeholder= "Description" data-ng-model="vm.new_post.description" />
+  <input placeholder= "Email" data-ng-model="vm.new_post.email" />
+  <input placeholder= "Phone" data-ng-model="vm.new_post.phone" />
+  <input placeholder= "Street" data-ng-model="vm.new_post.street" />
+  <input placeholder= "City" data-ng-model="vm.new_post.city" />
+  <input placeholder= "State" data-ng-model="vm.new_post.state" />
+  <input placeholder= "Picture_url" data-ng-model="vm.new_post.picture_url" />
+  <button type = "button" data-ng-click="PostIndexViewModel.create(vm.new_post.title,vm.new_post.description,vm.new_post.email,vm.new_post.phone,vm.new_post.street,vm.new_post.city,vm.new_post.state,vm.new_post.url)">Create</button>
+</form>
+</main>
+
+
+vm.new_post = new PostFactory();
+console.log("NEW POST")
+vm.create = function(title,description,email,phone,street,city,state,url){
+  console.log(vm.new_post);
+  vm.new_post = new PostFactory();
+  console.log(vm.new_post);
+  vm.new_post.$save().then(function(response){
+    console.log(response)
+    // vm.post_data.push(response);
+    vm.new_post = {};
+  });
+}
+
+
+
+
+
+
+vm.new_post = {};
+vm.create = function(){
+  Post.save(vm.new_post, function(response){
+  vm.post_data.push(response);
+
+
+
+vm.new_post = new Post();
+console.log("NEW POST")
+vm.create = function(title, description){
+  console.log(vm.new_post);
+  vm.new_post = new PostFactory();
+  console.log(vm.new_post);
+  vm.new_post.$save().then(function(response){
+    console.log(response)
+    // vm.post_data.push(response);
+    vm.new_post = {};
+  });
+}
+
+
+
+
 GREY
 <a href="#" class="btn btn-default">Default</a>
 PINK

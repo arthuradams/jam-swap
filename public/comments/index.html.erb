@@ -1,4 +1,4 @@
-<main data-ng-controller="comment_controller as vm">
+
 <h2>Comments</h2>
 <table>
   <thead>
@@ -7,18 +7,17 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-  <br/>
+  <br>
   <tbody>
       <tr data-ng-repeat="commentvm in vm.com_data">
-        <td>{{commentvm.comment}}</td>
+        <td>{{commentvm.message}}</td>
         <td><button class="btn btn-success btn-sm" data-ui-sref="commentShow({id: commentvm.id})">Show</button></td>
         <td><button data-ng-click="CommentIndexController.destroy(commentvm)">Delete</button></td>
       </tr>
   </tbody>
 </table>
-<br/>
+<br>
 <form data-ng-submit="CommentIndexViewModel.create()">
-  <input placeholder="New Comment" data-ng-model="CommentIndexViewModel.comment.comment" />
+  <input placeholder="New Comment" data-ng-model="CommentIndexViewModel.comment.message" />
   <button class="btn btn-info btn-sm" type="submit">Create</button>
 </form>
-</main>

@@ -61,14 +61,14 @@
       .state("postIndex", {
         url: "/posts",
         templateUrl: "posts/index.html.erb",
-        controller: "post_controller",
+        controller: "post_index_controller",
         controllerAs: "PostIndexViewModel"
       })
       .state("postNew", {
         url: "/posts/new",
         templateUrl: "posts/new.html.erb",
-        controller: "post_controller",
-        controllerAs: "PostIndexViewModel"
+        controller: "post_new_controller",
+        controllerAs: "PostNewViewModel"
       })
       .state("postEdit", {
         url: "/posts/:id/edit",

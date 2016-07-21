@@ -5,13 +5,17 @@
     .module("posts")
     .controller("PostShowController", [
       "PostFactory",
+      "CommentFactory",
       "$stateParams",
       PostShowControllerFunction
     ]);
 
-  function PostShowControllerFunction(PostFactory, $stateParams){
-    this.post = PostFactory.get({id: $stateParams.id})
-
+  function PostShowControllerFunction(PostFactory, CommentFactory, $stateParams){
+    var vm = this;
+    PostFactory.get({id: $stateParams.id}).$promise.then(function(post) {
+      vm.post = post
+    })
+    this.comments = CommentFactory.query({post_id: $stateParams.id})
     this.update = function(post){
       post.$update(post);
     }
